@@ -1,7 +1,6 @@
 package com.aiinterview.interviewer.controller;
 
 import com.aiinterview.interviewer.service.ScoreService;
-import com.aiinterview.interviewer.util.CookieInfo;
 import com.aiinterview.interviewer.vo.InfoAndScoreVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

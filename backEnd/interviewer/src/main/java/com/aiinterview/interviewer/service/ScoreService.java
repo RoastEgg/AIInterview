@@ -36,11 +36,11 @@ public class ScoreService {
             String name = interviewee.getName();
             nameList.add(name);
         }
-        if (nameList.size() == 0) {
-            System.out.println("get nothing from db");
-        } else {
-            System.out.println("name: " + nameList.get(0));
-        }
+//        if (nameList.size() == 0) {
+//            System.out.println("get nothing from db");
+//        } else {
+//            System.out.println("name: " + nameList.get(0));
+//        }
 
         return nameList;
     }
@@ -51,7 +51,14 @@ public class ScoreService {
 
         Video video = videoRepo.findByinterviewee(interviewee);
         vo.setOrganization(interviewee.getOrganization());
-        vo.setVideo(video);
+        vo.setFilePath(video.getFilePath());
+        vo.setFace(video.getFace());
+        vo.setAffinity(video.getAffinity());
+        vo.setConfidence(video.getConfidence());
+        vo.setStability(video.getStability());
+        vo.setExpression(video.getExpression());
+        vo.setAutognosis(video.getAutognosis());
+        vo.setApplyPurpose(video.getApplyPurpose());
         return vo;
     }
 }
