@@ -1,0 +1,72 @@
+<!--miniprogram/pages/videoInterview/videoInterview.wxml-->
+<view class="container">
+  <view class="user-list">
+    <view 
+      wx:for="{{persons}}" 
+      vx:key="{{index}}" 
+      data-person="{{item}}"
+      data-index="{{index}}"
+      bindtap="tapPerson">
+      <view wx:if="{{index == currentIndex}}" class="user-item user-item-selected">
+        <text>{{item.name}}</text>
+        <view class="line"></view>
+      </view>
+      <view wx:else class="user-item">
+        <text>{{item.name}}</text>
+        <view class="line"></view>
+      </view>
+    </view>
+  </view>
+
+  <view class="user-detail">
+    <view class="user-info">
+      <button 
+        open-type="getUserInfo" 
+        bindgetuserinfo="onGetUserInfo"
+        class="user-info-avatar"
+        style="background-image: url({{avatarUrl}})"
+      ></button>
+      <view class="user-info-text">
+        <text class="user-info-name">{{currentPerson.name}}</text>
+        <text class="user-info-more">{{currentPerson.organization}}</text>
+      </view>
+    </view>
+    <view class="video-wrapper">
+      <video
+        id="myVideo"
+        src="{{filePath}}"
+        controls
+      ></video>
+    </view>
+    <view class="evaluates">
+      <view class="evaluate">
+        <text class="key">形象气质</text>
+        <text class="value">{{currentPerson.face}}</text>
+      </view>
+      <view class="evaluate">
+        <text class="key">亲和力</text>
+        <text class="value">{{currentPerson.affinity}}</text>
+      </view>
+      <view class="evaluate">
+        <text class="key">自信力</text>
+        <text class="value">{{currentPerson.confidence}}</text>
+      </view>
+      <view class="evaluate">
+        <text class="key">情绪稳定</text>
+        <text class="value">{{currentPerson.stability}}</text>
+      </view>
+      <view class="evaluate">
+        <text class="key">表达能力</text>
+        <text class="value">{{currentPerson.expression}}</text>
+      </view>
+      <view class="evaluate">
+        <text class="key">自我认知</text>
+        <text class="value">{{currentPerson.autognosis}}</text>
+      </view>
+      <view class="evaluate">
+        <text class="key">求职动机</text>
+        <text class="value">{{currentPerson.applyPurpose}}</text>
+      </view>
+    </view>
+  </view>
+</view>
